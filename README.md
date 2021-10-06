@@ -3,7 +3,7 @@ MartinBinard_6_05102021
 
 ***A REST API for a gastronomic review website***
 
-**Main branch - Commit #2**
+**Main branch - Commit #3**
 
 # Description
 
@@ -18,10 +18,10 @@ MartinBinard_6_05102021
 
 # Change done
 
-* Install nodemon, express, bodyParser, mongoose.
-* Add sauceSchema model.
-* Add headers & an empty POST request.
-* Add README.md.
+* Add user creation & login.
+* Add encrypt token & check token user middleware.
+* Add routes & controllers directories.
+* Install mongoose-unique-validator, bcrypt & jswt package.
 
 # WEBSITE LINK
 
