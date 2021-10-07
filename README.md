@@ -3,7 +3,7 @@ MartinBinard_6_05102021
 
 ***A REST API for a gastronomic review website***
 
-**Main branch - Commit #3**
+**Main branch - Commit #4**
 
 # Description
 
@@ -18,10 +18,9 @@ MartinBinard_6_05102021
 
 # Change done
 
-* Add user creation & login.
-* Add encrypt token & check token user middleware.
-* Add routes & controllers directories.
-* Install mongoose-unique-validator, bcrypt & jswt package.
+* Add CRUD system, multer-config.js & fileSytem image managment.
+* Install multer.
+* Add userId in sauceSchema.
 
 # WEBSITE LINK
 

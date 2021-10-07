@@ -1,6 +1,7 @@
-const express =require('express');
+const express = require('express');
 const bodyParser =require('body-parser');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const saucesRoutes = require('./routes/sauces');
 const usersRoutes = require('./routes/users');
@@ -23,6 +24,9 @@ app.use((req, res, next) => {
 });
 
 app.use(bodyParser.json());
+
+// GIVE IMAGE DIRECTORY PATH
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use('/api/sauces', saucesRoutes);
 app.use('/api/auth', usersRoutes);
