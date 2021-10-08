@@ -1,1 +1,2 @@
 node_modules
+# .env is normaly removed to protect sentive data access

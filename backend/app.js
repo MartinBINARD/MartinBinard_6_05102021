@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express');
 const bodyParser =require('body-parser');
 const mongoose = require('mongoose');
@@ -7,7 +9,7 @@ const saucesRoutes = require('./routes/sauces');
 const usersRoutes = require('./routes/users');
 
 // ADD MONGOOSE
-mongoose.connect('mongodb+srv://john:feFbnxxOmq1B@cluster0.0gxdu.mongodb.net/test',
+mongoose.connect(process.env.DB_HOST,
   { useNewUrlParser: true,
     useUnifiedTopology: true })
   .then(() => console.log('Connection to MongoDB successful !'))
@@ -15,7 +17,7 @@ mongoose.connect('mongodb+srv://john:feFbnxxOmq1B@cluster0.0gxdu.mongodb.net/tes
 
 const app = express();
 
-// ADD HEADERS
+// ADD HEADERS FOR CORS
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');

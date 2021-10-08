@@ -2,7 +2,7 @@ const Sauce = require('../models/Sauce');
 const fs = require('fs');
 
 exports.likeSauce = (req, res, next) => {
-    // TO FILL UP
+    // TO FILL IN
 };
 
 exports.createSauce = (req, res , next) => {

@@ -1,4 +1,7 @@
+// Encrypt email
+// Hash password
 const bcrypt = require('bcrypt');
+// Token 
 const jwt = require('jsonwebtoken');
 
 const User = require('../models/User');
@@ -34,7 +37,7 @@ exports.login = (req, res, next) => {
                         userID: user._id,
                         token: jwt.sign(
                             { userId: user._id },
-                            'RANDOM_TOKEN_SECRET',
+                            process.env.SECRET_TOKEN,
                             { expiresIn: '24h' }
                         )
                     });

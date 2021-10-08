@@ -3,7 +3,7 @@ MartinBinard_6_05102021
 
 ***A REST API for a gastronomic review website***
 
-**Main branch - Commit #4**
+**Main branch - Commit #5**
 
 # Description
 
@@ -18,9 +18,7 @@ MartinBinard_6_05102021
 
 # Change done
 
-* Add CRUD system, multer-config.js & fileSytem image managment.
-* Install multer.
-* Add userId in sauceSchema.
+* Add .env file to protect sensitive info on database access.
 
 # WEBSITE LINK
 
