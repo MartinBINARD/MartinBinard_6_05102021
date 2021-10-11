@@ -1,4 +1,6 @@
+const dotenv = require('dotenv').config();
 // Encrypt email
+const cryptojs = require('crypto-js');
 // Hash password
 const bcrypt = require('bcrypt');
 // Token 
@@ -8,21 +10,25 @@ const User = require('../models/User');
 
 // HASH & SAVE IN DATBASE NEW USER
 exports.signup = (req, res, next) => {
+    const cryptoMail = cryptojs.HmacSHA512(req.body.email, `${process.env.ENCRYPTED_MAIL}`).toString();
+
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
             const user = new User({
-                email: req.body.email,
+                email: cryptoMail,
                 password: hash
             });
             user.save()
-                .then(() => res.stauts(201).json({ message: 'User created !'}))
+                .then(() => res.status(201).json({ message: 'User created !'}))
                 .catch(error => res.status(400).json({ error }));
         })
         .catch(error => res.status(500).json({ error }));
 };
 
 exports.login = (req, res, next) => {
-    User.findOne({ email: req.body.email })
+    const cryptoMail = cryptojs.HmacSHA512(req.body.email, `${process.env.ENCRYPTED_MAIL}`).toString();
+    
+    User.findOne({ email: cryptoMail })
         .then(user => {
             if(!user) {
                 return res.status(401).json({ error: 'User not found !'});

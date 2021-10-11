@@ -3,7 +3,7 @@ MartinBinard_6_05102021
 
 ***A REST API for a gastronomic review website***
 
-**Main branch - Commit #5**
+**Main branch - Commit #6**
 
 # Description
 
@@ -18,7 +18,9 @@ MartinBinard_6_05102021
 
 # Change done
 
-* Add .env file to protect sensitive info on database access.
+* Add encrypted email with crypto-js for data privacy.
+* Add helmet to prevent XSS attacks.
+* Add token pass to .env file.
 
 # WEBSITE LINK
 

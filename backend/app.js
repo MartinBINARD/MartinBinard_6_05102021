@@ -1,6 +1,7 @@
-require('dotenv').config();
+const dotenv = require('dotenv').config();
 
 const express = require('express');
+const helmet = require('helmet');
 const bodyParser =require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
@@ -17,6 +18,7 @@ mongoose.connect(process.env.DB_HOST,
 
 const app = express();
 
+app.use(helmet);
 // ADD HEADERS FOR CORS
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
