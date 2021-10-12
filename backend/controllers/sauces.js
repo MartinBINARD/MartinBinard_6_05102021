@@ -1,10 +1,6 @@
 const Sauce = require('../models/Sauce');
 const fs = require('fs');
 
-exports.likeSauce = (req, res, next) => {
-    // TO FILL IN
-};
-
 exports.createSauce = (req, res , next) => {
     const sauceObject = JSON.parse(req.body.sauce);
     console.log(sauceObject);
@@ -16,8 +12,8 @@ exports.createSauce = (req, res , next) => {
         imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
         likes : 0,
         dislikes : 0,
-        usersLiked : [],
-        usersDisliked : []
+        usersLiked : [''],
+        usersDisliked : ['']
     });
     console.log(sauce);
     // STORING TO MONGODB

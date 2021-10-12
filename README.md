@@ -3,7 +3,7 @@ MartinBinard_6_05102021
 
 ***A REST API for a gastronomic review website***
 
-**Main branch - Commit #7**
+**Main branch - Commit #8**
 
 # Description
 
@@ -18,7 +18,9 @@ MartinBinard_6_05102021
 
 # Change done
 
-* Add frontend repo & add likes & dislike during sauce creation.
+* Add README.md instructions to run the front & backend repos.
+* Add arrays to userLikes & userDislikes in ./models/sauce.js.
+* Clear images directory.
 
 # WEBSITE LINK
 
@@ -26,4 +28,15 @@ MartinBinard_6_05102021
 
 # How to run this website
 
-* There is no frontend for now.
+* Open the frontend repo in a terminal and run :
+```
+run npm install
+```
+* then run :
+```
+run npm install --save-dev run-script-os
+```
+* Next step, open the backend repo in a new terminal and run :
+```
+nodemon server
+```
