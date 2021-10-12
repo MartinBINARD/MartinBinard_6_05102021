@@ -3,7 +3,7 @@ MartinBinard_6_05102021
 
 ***A REST API for a gastronomic review website***
 
-**Main branch - Commit #9**
+**Main branch - Commit #10**
 
 # Description
 
@@ -18,8 +18,7 @@ MartinBinard_6_05102021
 
 # Change done
 
-* Remove the s of mimetype multer links.
-* Remove name to prevent twice .jpg extension on image files.s
+* Rename userID in userId in user login function located in controllers/user.js.
 
 # WEBSITE LINK
 
