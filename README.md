@@ -3,7 +3,7 @@ MartinBinard_6_05102021
 
 ***A REST API for a gastronomic review website***
 
-**Main branch - Commit #8**
+**Main branch - Commit #9**
 
 # Description
 
@@ -18,9 +18,8 @@ MartinBinard_6_05102021
 
 # Change done
 
-* Add README.md instructions to run the front & backend repos.
-* Add arrays to userLikes & userDislikes in ./models/sauce.js.
-* Clear images directory.
+* Remove the s of mimetype multer links.
+* Remove name to prevent twice .jpg extension on image files.s
 
 # WEBSITE LINK
 
