@@ -3,7 +3,7 @@ MartinBinard_6_05102021
 
 ***A REST API for a gastronomic review website***
 
-**Main branch - Commit #6**
+**Main branch - Commit #7**
 
 # Description
 
@@ -18,9 +18,7 @@ MartinBinard_6_05102021
 
 # Change done
 
-* Add encrypted email with crypto-js for data privacy.
-* Add helmet to prevent XSS attacks.
-* Add token pass to .env file.
+* Add frontend repo & add likes & dislike during sauce creation.
 
 # WEBSITE LINK
 

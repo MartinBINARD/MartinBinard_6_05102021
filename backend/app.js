@@ -2,7 +2,7 @@ const dotenv = require('dotenv').config();
 
 const express = require('express');
 const helmet = require('helmet');
-const bodyParser =require('body-parser');
+const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 
@@ -18,7 +18,7 @@ mongoose.connect(process.env.DB_HOST,
 
 const app = express();
 
-app.use(helmet);
+app.use(helmet());
 // ADD HEADERS FOR CORS
 app.use((req, res, next) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -27,7 +27,7 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 // GIVE IMAGE DIRECTORY PATH
 app.use('/images', express.static(path.join(__dirname, 'images')));
