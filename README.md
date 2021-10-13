@@ -3,7 +3,7 @@ MartinBinard_6_05102021
 
 ***A REST API for a gastronomic review website***
 
-**Main branch - Commit #10**
+**Main branch - Commit #11**
 
 # Description
 
@@ -18,7 +18,7 @@ MartinBinard_6_05102021
 
 # Change done
 
-* Rename userID in userId in user login function located in controllers/user.js.
+* Try to add like & dislike button function.
 
 # WEBSITE LINK
 

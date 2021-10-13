@@ -17,6 +17,6 @@ router.get('/:id', auth, sauceCtrl.getOneSauce);
 // FIND TO DISPLAY ALL SAUCES FROM DATABASE IN MAIN PAGE
 router.get('/', auth, sauceCtrl.getAllSauces);
 // LIKE SAUCE
-// router.post('/:id/like', auth, sauceCtrl.likeSauce);
+router.post('/:id/like', auth, sauceCtrl.likeDislikeSauce);
 
 module.exports = router;

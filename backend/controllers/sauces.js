@@ -58,3 +58,46 @@ exports.getAllSauces = (req, res, next) => {
         .then(sauces => res.status(200).json(sauces))
         .catch(error => res.status(400).json({ error }));
 };
+
+exports.likeDislikeSauce = (req, res, next) => {
+    // const sauceObject = req.file ?
+    //     {
+    //         likes : 1, dislikes : 0,
+    //         $push: { usersLiked : `${req.params.id}` },
+    //         $pull: { usersDisliked : `${req.params.id}` }
+    //     }:{
+    //         dislikes : 1, likes : 0,
+    //         $push: { usersDisliked : `${req.params.id}`},
+    //         $pull: { usersLiked : `${req.params.id}` }
+    //     }
+    const sauceObject = JSON.parse(req.body.sauce);
+    const sauceObjectLikes = JSON.parse(req.body.likes);
+
+    switch (sauceObjectLikes) {
+        case 1 :
+            sauceObject = {
+                likes : 1, dislikes : 0,
+                $push: { usersLiked : `${req.params.id}` },
+                $pull: { usersDisliked : `${req.params.id}` }
+            }
+            break;
+        case -1 :
+            sauceObject = {
+                dislikes : 1, likes : 0,
+                $push: { usersDisliked : `${req.params.id}`},
+                $pull: { usersLiked : `${req.params.id}` }
+            }
+            break;
+        case 0 :
+            sauceObject = {
+                likes : 0, dislikes : 0,
+                $pull: { usersLiked : `${req.params.id}` },
+                $pull: { usersDisliked : `${req.params.id}` }
+            }
+            break;
+    }
+    console.log(sauceObject);
+    Sauce.updateOne({ _id: req.params.id }, { ...sauceObject, _id: req.params.id })
+       .then(() => res.status(200).json({ message: 'Sauce rank updated !'}))
+       .catch(error => res.status(400).json({ error }));
+};
