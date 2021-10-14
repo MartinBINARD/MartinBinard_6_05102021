@@ -11,9 +11,7 @@ exports.createSauce = (req, res , next) => {
         ...sauceObject,
         imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`,
         likes : 0,
-        dislikes : 0,
-        usersLiked : [''],
-        usersDisliked : ['']
+        dislikes : 0
     });
     console.log(sauce);
     // STORING TO MONGODB
@@ -60,44 +58,16 @@ exports.getAllSauces = (req, res, next) => {
 };
 
 exports.likeDislikeSauce = (req, res, next) => {
-    // const sauceObject = req.file ?
-    //     {
-    //         likes : 1, dislikes : 0,
-    //         $push: { usersLiked : `${req.params.id}` },
-    //         $pull: { usersDisliked : `${req.params.id}` }
-    //     }:{
-    //         dislikes : 1, likes : 0,
-    //         $push: { usersDisliked : `${req.params.id}`},
-    //         $pull: { usersLiked : `${req.params.id}` }
-    //     }
-    const sauceObject = JSON.parse(req.body.sauce);
-    const sauceObjectLikes = JSON.parse(req.body.likes);
-
-    switch (sauceObjectLikes) {
-        case 1 :
-            sauceObject = {
-                likes : 1, dislikes : 0,
-                $push: { usersLiked : `${req.params.id}` },
-                $pull: { usersDisliked : `${req.params.id}` }
-            }
-            break;
-        case -1 :
-            sauceObject = {
-                dislikes : 1, likes : 0,
-                $push: { usersDisliked : `${req.params.id}`},
-                $pull: { usersLiked : `${req.params.id}` }
-            }
-            break;
-        case 0 :
-            sauceObject = {
-                likes : 0, dislikes : 0,
-                $pull: { usersLiked : `${req.params.id}` },
-                $pull: { usersDisliked : `${req.params.id}` }
-            }
-            break;
+    
+    if (req.body.likes === 1) {
+        Sauce.updateOne({ _id: req.params.id }, { $inc: { likes: 1 }, $push: { usersLiked: req.body.userId } })
+            .then(() => res.status(200).json({ message: 'Sauce rank updated !'}))
+            .catch(error => res.status(400).json({ error }));
+    } else if (req.body.likes === -1) {
+        Sauce.updateOne({ _id: req.params.id }, { $inc: { likes: -1 }, $push: { usersDisliked: req.body.userId } })
+            .then(() => res.status(200).json({ message: 'Sauce rank updated !'}))
+            .catch(error => res.status(400).json({ error }));
+    } else {
+        console.log('Cannot like & unlike the same sauce !');
     }
-    console.log(sauceObject);
-    Sauce.updateOne({ _id: req.params.id }, { ...sauceObject, _id: req.params.id })
-       .then(() => res.status(200).json({ message: 'Sauce rank updated !'}))
-       .catch(error => res.status(400).json({ error }));
 };

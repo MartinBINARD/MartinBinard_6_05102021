@@ -3,7 +3,7 @@ MartinBinard_6_05102021
 
 ***A REST API for a gastronomic review website***
 
-**Main branch - Commit #11**
+**Main branch - Commit #12**
 
 # Description
 
@@ -18,7 +18,8 @@ MartinBinard_6_05102021
 
 # Change done
 
-* Try to add like & dislike button function.
+* Try to route like/dislike sauce, again.
+* Add Array in userLikes/suersDisliked model sauce.
 
 # WEBSITE LINK
 
