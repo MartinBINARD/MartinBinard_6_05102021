@@ -18,8 +18,7 @@ MartinBinard_6_05102021
 
 # Change done
 
-* Try to route like/dislike sauce, again.
-* Add Array in userLikes/suersDisliked model sauce.
+* Add switch case with 3 cases.
 
 # WEBSITE LINK
 
