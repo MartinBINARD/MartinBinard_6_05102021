@@ -3,7 +3,7 @@ MartinBinard_6_05102021
 
 ***A REST API for a gastronomic review website***
 
-**Main branch - Commit #12**
+**Main branch - Commit #13**
 
 # Description
 
@@ -18,7 +18,7 @@ MartinBinard_6_05102021
 
 # Change done
 
-* Add switch case with 3 cases.
+* Add new like/dislike controller.
 
 # WEBSITE LINK
 

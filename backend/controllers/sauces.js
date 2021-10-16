@@ -58,32 +58,39 @@ exports.getAllSauces = (req, res, next) => {
 };
 
 exports.likeDislikeSauce = (req, res, next) => {
-    switch(req.body.like) {
-        // Like
-        case 1 :
-            Sauce.updateOne({ _id: req.params.id }, { $inc: { likes: 1 }, $push: { usersLiked:  req.body.userId } })
-                .then(() => res.status(200).json({ message: 'Sauce liked !'}))
-                .catch(error => res.status(400).json({ error }));
-        break;
-        // Dislike
-        case -1 :
-            Sauce.updateOne({ _id: req.params.id }, { $inc: { dislikes: 1 }, $push: {     usersDisliked: req.body.userId } })
-                .then(() => res.status(200).json({ message: 'Sauce disliked !'}))
-                .catch(error => res.status(400).json({ error }));
-        break;
-        // Cancel like or dislike
-        case 0 :
-            if(/* userId is already stored in UserDisliked*/) {
-                Sauce.updateOne({ _id: req.params.id }, { $inc: { likes: -1 }, $pull:{      usersLiked: req.body.userId } })
-                    .then(() => res.status(200).json({ message: 'Sauce liked canceled !'}))
-                    .catch(error => res.status(400).json({ error }));
-            } else if (/* userId is already stored in UserDisliked*/) {
-                Sauce.updateOne({ _id: req.params.id }, { $inc: { dislikes: -1 }, $pull: {     usersDisliked: req.body.userId } })
-                    .then(() => res.status(200).json({ message: 'Sauce disliked canceled !'}))
-                    .catch(error => res.status(400).json({ error }));
-            }
-        break;
-        default :
-            console.log(error);
-    }
+    Sauce.findOne({ _id: req.params.id })
+        .then((Sauce) =>{
+            switch(req.body.like) {
+                // Like
+                case 1 :
+                    Sauce.updateOne({ _id: req.params.id }, { $inc: { likes: 1 }, $push: { usersLiked:  req.body.userId } })
+                        .then(() => res.status(200).json({ message: 'Sauce liked !'}))
+                        .catch(error => res.status(400).json({ error }));
+                break;
+                // Dislike
+                case -1 :
+                    Sauce.updateOne({ _id: req.params.id }, { $inc: { dislikes: 1 }, $push: { usersDisliked: req.body.userId } })
+                        .then(() => res.status(200).json({ message: 'Sauce disliked !'}))
+                        .catch(error => res.status(400).json({ error }));
+                break;
+                // Cancel like or dislike
+                case 0 :
+                    /* userId is already stored in UserDisliked*/
+                    if(Sauce.usersLiked.includes(req.body.userId)) {
+                        Sauce.updateOne({ _id: req.params.id }, { $inc: { likes: -1 }, $pull:{ usersLiked: req.body.userI} })
+                            .then(() => res.status(200).json({ message: 'Sauce liked canceled !'}))
+                            .catch(error => res.status(400).json({ error }));
+                    } else if (Sauce.usersDisliked.includes(req.body.userId)) { /* userId is already stored iUserDisliked*/
+                        Sauce.updateOne({ _id: req.params.id }, { $inc: { dislikes: -1 }, $pull: { usersDisliked: req.boduserId } })
+                            .then(() => res.status(200).json({ message: 'Sauce disliked canceled !'}))
+                            .catch(error => res.status(400).json({ error }));
+                    }
+                break;
+                default :
+                    throw {
+                        error: "Like / dislike function error !"
+                    };
+            };
+        })
+        .catch((error) => res.status(500).json({ error }));
 };
