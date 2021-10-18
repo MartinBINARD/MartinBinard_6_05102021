@@ -3,7 +3,7 @@ MartinBinard_6_05102021
 
 ***A REST API for a gastronomic review website***
 
-**Main branch - Commit #14**
+**Main branch - Commit #15**
 
 # Description
 
@@ -18,9 +18,7 @@ MartinBinard_6_05102021
 
 # Change done
 
-* Add findOne to remove like/dislike case in like/dislike controller conditions.
-* Try to add password-validator middleware to user signup route.
-* Modify images repo link in .gitignore.
+* Add req.body.password in passwordValidation.js.
 
 # WEBSITE LINK
 
