@@ -3,7 +3,7 @@ MartinBinard_6_05102021
 
 ***A REST API for a gastronomic review website***
 
-**Main branch - Commit #13**
+**Main branch - Commit #14**
 
 # Description
 
@@ -18,7 +18,9 @@ MartinBinard_6_05102021
 
 # Change done
 
-* Add new like/dislike controller.
+* Add findOne to remove like/dislike case in like/dislike controller conditions.
+* Try to add password-validator middleware to user signup route.
+* Modify images repo link in .gitignore.
 
 # WEBSITE LINK
 
