@@ -3,7 +3,7 @@ MartinBinard_6_05102021
 
 ***A REST API for a gastronomic review website***
 
-**Main branch - Commit #15**
+**Main branch - Commit #16**
 
 # Description
 
@@ -18,7 +18,9 @@ MartinBinard_6_05102021
 
 # Change done
 
-* Add req.body.password in passwordValidation.js.
+* Correct syntax error of exports password validation.
+* Add findOne on switch lik/dislike function.
+* Replace Array into String.
 
 # WEBSITE LINK
 

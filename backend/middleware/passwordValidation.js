@@ -1,7 +1,7 @@
-const userCtrl = require('../controllers/users');
 const passwordValidator = require('password-validator');
 
 const passwordSchema = new passwordValidator();
+const User = require('../models/User');
 
 passwordSchema
     .is().min(8)                                    // Minimum length 8
@@ -12,14 +12,12 @@ passwordSchema
     .has().not().spaces()                           // Should not have spaces
     .is().not().oneOf(['Passw0rd', 'Password123']); // Blacklist these values
 
-module.exports = (res, req, next) => {
+module.exports = (req, res, next) => {
+    console.log(req.body);
     if (passwordSchema.validate(req.body.password)) {
         console.log('Strong password !');
         next();
     } else {
-        return res.status(400)
-        throw {
-            error : "Weak password !"
-        };
+        res.status(403).json({ error: error | 'Weak password !' })
     }
 };
