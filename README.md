@@ -3,7 +3,7 @@ MartinBinard_6_05102021
 
 ***A REST API for a gastronomic review website***
 
-**Main branch - Commit #16**
+**Main branch - Commit #17**
 
 # Description
 
@@ -18,25 +18,25 @@ MartinBinard_6_05102021
 
 # Change done
 
-* Correct syntax error of exports password validation.
-* Add findOne on switch lik/dislike function.
-* Replace Array into String.
+* Add new instructions to README.md.
 
 # WEBSITE LINK
 
-* None.
+* Use the local port 8081 for the frontend application :
+[localhost:8081](http://localhost:8081)
 
 # How to run this website
 
 * Open the frontend repo in a terminal and run :
 ```
-run npm install
+npm install
 ```
-* then run :
+* then : 
 ```
-run npm install --save-dev run-script-os
+npm run start
 ```
 * Next step, open the backend repo in a new terminal and run :
 ```
 nodemon server
 ```
+* :warning: In order to prevent from port collisions, the API code port value is 3000.
