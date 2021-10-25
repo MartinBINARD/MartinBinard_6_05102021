@@ -3,7 +3,7 @@ MartinBinard_6_05102021
 
 ***A REST API for a gastronomic review website***
 
-**Main branch - Commit #17**
+**Main branch - Commit #18**
 
 # Description
 
@@ -18,7 +18,8 @@ MartinBinard_6_05102021
 
 # Change done
 
-* Add new instructions to README.md.
+* Add new weak password message when user signup.
+* Add mongoose-unique-validator message in browser console when email user signup is already created.
 
 # WEBSITE LINK
 

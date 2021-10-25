@@ -13,11 +13,11 @@ passwordSchema
     .is().not().oneOf(['Passw0rd', 'Password123']); // Blacklist these values
 
 module.exports = (req, res, next) => {
-    console.log(req.body);
     if (passwordSchema.validate(req.body.password)) {
         console.log('Strong password !');
         next();
     } else {
-        res.status(403).json({ error: error | 'Weak password !' })
+        res.status(403).json({ 
+            message: 'Weak password ! Minimun length is 8. Maximum length 100. Must have uppercase letters. Must have lowercase letters. Must have at least 2 digits. Must have at least 2 digits. Must have at least 2 digits. Should not have spaces. And not these kinds of password: Ex: Passw0rd, Password123' })
     }
 };

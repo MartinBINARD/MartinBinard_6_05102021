@@ -7,6 +7,6 @@ const userSchema = mongoose.Schema({
 });
 
 // Apply uniqueValidator to user Schema before to export it
-userSchema.plugin(uniqueValidator);
+userSchema.plugin(uniqueValidator, { message: 'Error, expected {PATH} to be unique ! Email account already used !'});
 
 module.exports = mongoose.model('User', userSchema);

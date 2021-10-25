@@ -11,7 +11,7 @@ const User = require('../models/User');
 // HASH & SAVE IN DATBASE NEW USER
 exports.signup = (req, res, next) => {
     const cryptoMail = cryptojs.HmacSHA512(req.body.email, `${process.env.ENCRYPTED_MAIL}`).toString();
-
+    console.log('User-signup');
     bcrypt.hash(req.body.password, 10)
         .then(hash => {
             const user = new User({
